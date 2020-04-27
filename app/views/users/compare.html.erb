@@ -1,0 +1,18 @@
+<%= link_to 'ランキング一覧', users_path %>
+<h1>好きなのはどっち？</h1>
+<div>データは<a href="https://rank1-media.com/I0003357/">ここ</a>から持ってきています</div>
+<br /><br />
+
+<% user_a = @users.first %>
+<% user_b = @users.last %>
+
+<div class="container">
+  <div class="item">
+    <div><%= user_a.name %></div>
+    <%= link_to image_tag(user_a.url), calc_path(user_a: user_a.id, user_b: user_b.id, winner: user_a.id) %>
+  </div>
+  <div class="item">
+    <div><%= user_b.name %><div>
+    <%= link_to image_tag(user_b.url), calc_path(user_a: user_a.id, user_b: user_b.id, winner: user_b.id) %>
+  </div>
+</div>

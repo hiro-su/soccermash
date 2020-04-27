@@ -1,0 +1,27 @@
+<h1>Listing users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>name</th>
+      <th>Rating</th>
+      <th>Url</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each_with_index do |user,i| %>
+      <tr>
+        <td><%= i+1 %></td>
+        <td><%= user.name %></td>
+        <td><%= user.rating %></td>
+        <td><%= image_tag user.url %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>
